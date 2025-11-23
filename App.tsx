@@ -10,7 +10,6 @@ import Footer from './components/Footer';
 import Background from './components/Background';
 import FloatingCryptoSymbols from './components/FloatingCryptoSymbols';
 import { Menu, X } from 'lucide-react';
-import { CONFIG } from './config';
 
 interface NavLinkProps {
   href: string;
@@ -140,15 +139,10 @@ const App: React.FC = () => {
             <NavLink href="#comparison" onClick={handleNavClick}>Compare</NavLink>
             <NavLink href="#tokenomics" onClick={handleNavClick}>Tokenomics</NavLink>
             <NavLink href="#roadmap" onClick={handleNavClick}>Roadmap</NavLink>
-            <a
-              href={CONFIG.PUMP_FUN_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full font-bold uppercase text-xs tracking-wider hover:shadow-[0_0_20px_rgba(124,58,237,0.6)] transition-all transform hover:-translate-y-0.5 border border-white/20 melting-hover relative overflow-hidden group"
-            >
+            <button className="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full font-bold uppercase text-xs tracking-wider hover:shadow-[0_0_20px_rgba(124,58,237,0.6)] transition-all transform hover:-translate-y-0.5 border border-white/20 melting-hover relative overflow-hidden group">
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-              <span className="relative">Buy</span>
-            </a>
+              <span className="relative">Connect Wallet</span>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -191,14 +185,9 @@ const App: React.FC = () => {
             <NavLink href="#comparison" onClick={handleNavClick}>Compare</NavLink>
             <NavLink href="#tokenomics" onClick={handleNavClick}>Tokenomics</NavLink>
             <NavLink href="#roadmap" onClick={handleNavClick}>Roadmap</NavLink>
-            <a
-              href={CONFIG.PUMP_FUN_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-3 mt-4 bg-gradient-to-r from-purple-600 to-blue-600 rounded font-bold uppercase text-sm text-center block"
-            >
-              Buy
-            </a>
+            <button className="w-full py-3 mt-4 bg-gradient-to-r from-purple-600 to-blue-600 rounded font-bold uppercase text-sm">
+              Connect Wallet
+            </button>
           </div>
         )}
       </nav>

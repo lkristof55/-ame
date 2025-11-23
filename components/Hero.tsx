@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Zap } from 'lucide-react';
-import { CONFIG } from '../config';
 
 // Crypto symbol components
 const CryptoSymbol: React.FC<{ symbol: string; x: number; y: number; delay: number }> = ({ symbol, x, y, delay }) => {
@@ -143,19 +142,14 @@ const Hero: React.FC = () => {
 
       {/* CTA Buttons with Melting Effects */}
       <div className="flex flex-col md:flex-row gap-6 mt-12 z-10">
-        <a
-          href={CONFIG.PUMP_FUN_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-sm font-black text-black text-lg uppercase tracking-widest overflow-hidden melting-hover"
-        >
+        <button className="group relative px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-sm font-black text-black text-lg uppercase tracking-widest overflow-hidden melting-hover">
           <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]" />
           <span className="relative flex items-center gap-2">
             Buy $SAME <Zap className="fill-black" size={20} />
           </span>
           {/* Dripping effect on hover */}
           <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-b from-transparent via-yellow-700/50 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-drip transition-opacity" />
-        </a>
+        </button>
 
         <button className="group px-8 py-4 bg-transparent border-2 border-cyan-500/50 rounded-sm font-bold text-cyan-400 text-lg uppercase tracking-widest hover:bg-cyan-500/10 hover:border-cyan-400 transition-all hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] melting-hover">
           <span className="flex items-center gap-2">
