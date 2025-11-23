@@ -1,4 +1,4 @@
-import { copyFileSync, existsSync } from 'fs';
+import { copyFileSync, existsSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -22,5 +22,35 @@ try {
   }
 } catch (error) {
   console.error('Error copying .htaccess:', error.message);
+}
+
+// Create _headers file for Render/Netlify static sites
+const headersContent = `/*.js
+  Content-Type: application/javascript; charset=utf-8
+
+/*.mjs
+  Content-Type: application/javascript; charset=utf-8
+
+/*.css
+  Content-Type: text/css; charset=utf-8
+
+/*.json
+  Content-Type: application/json; charset=utf-8
+
+/*.svg
+  Content-Type: image/svg+xml
+
+/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, OPTIONS
+  Access-Control-Allow-Headers: Content-Type
+`;
+
+try {
+  const headersPath = join(distDir, '_headers');
+  writeFileSync(headersPath, headersContent);
+  console.log('✓ Created _headers file in dist/');
+} catch (error) {
+  console.error('Error creating _headers:', error.message);
 }
 
