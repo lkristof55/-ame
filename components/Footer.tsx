@@ -1,5 +1,5 @@
 import React from 'react';
-import { Twitter, Send, Github } from 'lucide-react';
+import { Twitter } from 'lucide-react';
 import { CONFIG } from '../config';
 
 const Footer: React.FC = () => {
@@ -26,14 +26,6 @@ const Footer: React.FC = () => {
             >
               <span className="absolute inset-0 bg-cyan-400/20 rounded-full scale-0 group-hover:scale-150 transition-transform duration-500" />
               <Twitter size={20} className="relative z-10" />
-            </a>
-            <a href="#" className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-purple-500 hover:text-white transition-all duration-300 melting-hover group relative overflow-hidden">
-              <span className="absolute inset-0 bg-purple-500/20 rounded-full scale-0 group-hover:scale-150 transition-transform duration-500" />
-              <Send size={20} className="relative z-10" />
-            </a>
-            <a href="#" className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 melting-hover group relative overflow-hidden">
-              <span className="absolute inset-0 bg-white/20 rounded-full scale-0 group-hover:scale-150 transition-transform duration-500" />
-              <Github size={20} className="relative z-10" />
             </a>
           </div>
         </div>

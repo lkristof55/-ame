@@ -3,16 +3,16 @@
 
 export const CONFIG = {
   // Contract Address
-  CONTRACT_ADDRESS: '717sx6zrjXSFNMbNS68G6cqTy5LRAJbBTZ7kZhNApump',
+  CONTRACT_ADDRESS: '6JKmwbRog2t5AoxihVyJ8bqwgvq3QzsQsFC2RT57pump',
   
   // Helius API Key - loaded from .env
   HELIUS_API_KEY: import.meta.env.VITE_HELIUS_API_KEY || '7ef7af02-aa9d-4f5c-9c98-d5fa303d1f04', // Fallback for testing
   
   // Pump.fun link
-  PUMP_FUN_LINK: 'https://pump.fun', // Update with actual link
+  PUMP_FUN_LINK: 'https://pump.fun/coin/6JKmwbRog2t5AoxihVyJ8bqwgvq3QzsQsFC2RT57pump',
   
   // Social links
-  TWITTER_LINK: 'https://twitter.com/yourhandle', // Update with actual Twitter
+  TWITTER_LINK: 'https://x.com/samecoinonx',
   TELEGRAM_LINK: 'https://t.me/yourgroup', // Optional
   DISCORD_LINK: 'https://discord.gg/yourinvite', // Optional
 } as const;
