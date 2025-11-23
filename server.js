@@ -32,9 +32,15 @@ app.use(express.static(join(__dirname, 'dist'), {
   }
 }));
 
-// SPA routing - serve index.html for all routes
-// Express 5.x requires different syntax for catch-all routes
-app.get('/*', (req, res) => {
+// SPA routing - serve index.html for all routes that don't match static files
+// Use app.use() instead of app.get() for Express 5.x compatibility
+app.use((req, res, next) => {
+  // If the request is for a static file, skip this middleware
+  if (req.path.startsWith('/assets/') || req.path.includes('.')) {
+    return next();
+  }
+  
+  // Serve index.html for all other routes
   try {
     const indexHtml = readFileSync(join(__dirname, 'dist', 'index.html'), 'utf-8');
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
