@@ -13,10 +13,14 @@ const distDir = join(rootDir, 'dist');
 const htaccessPath = join(publicDir, '.htaccess');
 const distHtaccessPath = join(distDir, '.htaccess');
 
-if (existsSync(htaccessPath)) {
-  copyFileSync(htaccessPath, distHtaccessPath);
-  console.log('✓ Copied .htaccess to dist/');
-} else {
-  console.log('⚠ .htaccess not found in public/, skipping...');
+try {
+  if (existsSync(htaccessPath)) {
+    copyFileSync(htaccessPath, distHtaccessPath);
+    console.log('✓ Copied .htaccess to dist/');
+  } else {
+    console.log('⚠ .htaccess not found in public/, skipping...');
+  }
+} catch (error) {
+  console.error('Error copying .htaccess:', error.message);
 }
 
