@@ -33,7 +33,8 @@ app.use(express.static(join(__dirname, 'dist'), {
 }));
 
 // SPA routing - serve index.html for all routes
-app.get('*', (req, res) => {
+// Express 5.x requires different syntax for catch-all routes
+app.get('/*', (req, res) => {
   try {
     const indexHtml = readFileSync(join(__dirname, 'dist', 'index.html'), 'utf-8');
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
