@@ -9,7 +9,8 @@ import ContractAddress from './components/ContractAddress';
 import Footer from './components/Footer';
 import Background from './components/Background';
 import FloatingCryptoSymbols from './components/FloatingCryptoSymbols';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Zap } from 'lucide-react';
+import { CONFIG } from './config';
 
 interface NavLinkProps {
   href: string;
@@ -113,8 +114,8 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6 flex justify-between items-center">
           {/* Left side - Logo and $SAME text */}
           <div className="flex items-center gap-3">
-            {/* Logo in left corner */}
-            <div className="relative w-12 h-12">
+            {/* Logo in left corner - moved left */}
+            <div className="relative w-12 h-12 -ml-2">
               <img 
                 src="/logo.png" 
                 alt="$SAME Logo" 
@@ -125,8 +126,9 @@ const App: React.FC = () => {
                 }}
               />
             </div>
+            {/* $SAME text - moved right */}
             <div 
-              className={`text-2xl font-display font-black tracking-tighter italic bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-500 to-yellow-400 transition-all ${glitch ? 'animate-[glitch_0.2s_infinite]' : ''}`}
+              className={`text-2xl font-display font-black tracking-tighter italic bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-500 to-yellow-400 transition-all ml-2 ${glitch ? 'animate-[glitch_0.2s_infinite]' : ''}`}
               style={{ transform: glitch ? 'translate(2px, -2px)' : 'translate(0, 0)' }}
             >
               $SAME
@@ -139,10 +141,18 @@ const App: React.FC = () => {
             <NavLink href="#comparison" onClick={handleNavClick}>Compare</NavLink>
             <NavLink href="#tokenomics" onClick={handleNavClick}>Tokenomics</NavLink>
             <NavLink href="#roadmap" onClick={handleNavClick}>Roadmap</NavLink>
-            <button className="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full font-bold uppercase text-xs tracking-wider hover:shadow-[0_0_20px_rgba(124,58,237,0.6)] transition-all transform hover:-translate-y-0.5 border border-white/20 melting-hover relative overflow-hidden group">
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-              <span className="relative">Connect Wallet</span>
-            </button>
+            <a 
+              href={CONFIG.PUMP_FUN_LINK} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group relative px-6 py-2 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-sm font-black text-black text-sm uppercase tracking-widest overflow-hidden melting-hover"
+            >
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]" />
+              <span className="relative flex items-center gap-2">
+                Buy $SAME <Zap className="fill-black" size={16} />
+              </span>
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-b from-transparent via-yellow-700/50 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-drip transition-opacity" />
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -185,9 +195,18 @@ const App: React.FC = () => {
             <NavLink href="#comparison" onClick={handleNavClick}>Compare</NavLink>
             <NavLink href="#tokenomics" onClick={handleNavClick}>Tokenomics</NavLink>
             <NavLink href="#roadmap" onClick={handleNavClick}>Roadmap</NavLink>
-            <button className="w-full py-3 mt-4 bg-gradient-to-r from-purple-600 to-blue-600 rounded font-bold uppercase text-sm">
-              Connect Wallet
-            </button>
+            <a 
+              href={CONFIG.PUMP_FUN_LINK} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group relative w-full py-3 mt-4 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-sm font-black text-black text-sm uppercase tracking-widest overflow-hidden melting-hover text-center"
+              onClick={handleNavClick}
+            >
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]" />
+              <span className="relative flex items-center justify-center gap-2">
+                Buy $SAME <Zap className="fill-black" size={16} />
+              </span>
+            </a>
           </div>
         )}
       </nav>
