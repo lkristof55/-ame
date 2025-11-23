@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/copy-htaccess.js",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node server.js"
   },
   "dependencies": {
+    "express": "^5.1.0",
     "lucide-react": "^0.554.0",
     "qrcode.react": "^4.2.0",
     "react": "^19.2.0",
