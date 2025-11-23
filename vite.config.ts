@@ -9,6 +9,16 @@ export default defineConfig(({ mode }) => {
         port: 3000,
         host: '0.0.0.0',
       },
+      preview: {
+        host: '0.0.0.0',
+        port: process.env.PORT ? parseInt(process.env.PORT) : 4173,
+        allowedHosts: [
+          'samecoin.wtf',
+          '.samecoin.wtf',
+          'localhost',
+          '.localhost',
+        ],
+      },
       publicDir: 'public',
       plugins: [react()],
       define: {
